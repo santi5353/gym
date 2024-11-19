@@ -1,0 +1,11 @@
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    {% if user.is_instructor %}
+        <p>You are an instructor. <a href="{% url 'edit_profile' %}">Edit your profile</a></p>
+    {% elif user.is_client %}
+        <p>You are a client. <a href="{% url 'edit_profile' %}">Edit your profile</a></p>
+    {% endif %}
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a>.</p>
+{% endif %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reserve Class</title>
+</head>
+<body>
+    <h1>Reserve Class</h1>
+    <p>Are you sure you want to reserve the class <strong>{{ routine.title }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Reservation</button>
+    </form>
+    <a href="{% url 'all_routines' %}">Cancel</a>
+</body>
+</html>

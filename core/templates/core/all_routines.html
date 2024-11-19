@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Routines</title>
+</head>
+<body>
+    <h1>All Available Routines</h1>
+    <ul>
+        {% for routine in routines %}
+        <li>
+            <strong>{{ routine.title }}</strong> - {{ routine.difficulty }}<br>
+            Instructor: {{ routine.instructor.username }}<br>
+            {{ routine.description }}<br>
+            <!-- Aquí se cambia # por la URL correcta -->
+            <a href="{% url 'reserve_class' routine_id=routine.id %}">Reserve Class</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<ul>
+    {% for routine in routines %}
+    <li>
+        <strong>{{ routine.title }}</strong> - {{ routine.difficulty }}
+        <p>{{ routine.description }}</p>
+        <h4>Reservations:</h4>
+        <ul>
+            {% for reservation in routine.reservations.all %}
+            <li>{{ reservation.client.username }} ({{ reservation.reserved_at }})</li>
+            {% empty %}
+            <li>No reservations yet.</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
